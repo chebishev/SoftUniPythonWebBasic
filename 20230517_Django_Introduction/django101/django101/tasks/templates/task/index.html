@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django 101</title>
+</head>
+<body>
+    {% if tasks_list %}
+        {% for task in tasks_list %}
+            <h1>{{ task.task_title }}</h1>
+            <p>{{ task.task_text }}</p>
+            <h5>{{ task.task_url }}</h5>
+            <h5>{{ task.task_email }}</h5>
+            <h5>{{ task.task_time }}</h5>
+        {% endfor %}
+    {% else %}
+        <p>There are no created tasks!</p>
+    {% endif %}
+</body>
+</html>
