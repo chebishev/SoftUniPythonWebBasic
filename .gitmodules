@@ -1,0 +1,3 @@
+[submodule "django101"]
+	path = django101
+	url = https://github.com/chebishev/django101.git
