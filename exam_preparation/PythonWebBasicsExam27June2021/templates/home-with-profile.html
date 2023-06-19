@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{#{% block list-right %}#}
+{#{% include 'full-list-right.html' %}#}
+{#{% endblock %}#}
+{% block content %}
+        <h1>My Notes</h1>
+
+        {% if not notes %}}
+        <h2>There are no notes.</h2>
+        {% else %}
+        {% for note in notes %}
+        <div class="note-container">
+            
+            <h2>{{ note.title }}<img src="{{ note.image_url }}"  alt="task-icon"/></h2>
+
+            <div class="right">
+                <a class="button details" href="{% url 'details' note.id %}">Details</a>
+                <a class="button edit" href="{% url 'edit' note.id %}">Edit</a>
+                <a class="button delete" href="{% url 'delete' note.id %}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+{% endblock %}

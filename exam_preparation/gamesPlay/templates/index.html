@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+
+        <h1>My Recipes</h1>
+        {% if not recipes %}   {# Проверка дали от базата данни се връща нещо #}
+        <h2>There are no recipes.</h2>
+        {% else %}             {# При наличие на обекти (Recipe.objects.all()): #}
+        {% for recipe in recipes %}   {# Пускаме цикъл и ги показваме #}
+        <div class="items-container">
+            <div class="item">
+                <h2>{{ recipe.title }}</h2>    {# Замяна 1 #}
+                <img class="detail-img" src="{{ recipe.image_url }}" alt="recipe-image">  {# Замяна 2 #}
+                <div class="recipe-info">
+                    {{ recipe.description }}    {# Замяна 3 #}
+                </div>
+                <div class="buttons-container">
+                    <a class="button detail" href="{% url 'details' pk=recipe.pk %}">Details</a> {# Тук се вижда вече #}
+                    <a class="button edit" href="{% url 'edit' pk=recipe.pk %}">Edit</a>        {# Тук се вижда вече #}
+                    <a class="button delete" href="{% url 'delete' pk=recipe.pk %}">Delete</a>  {# Тук се вижда вече #}
+                </div>
+            </div>
+            {% endfor %}  {# Край на цикъла #}
+            {% endif %}   {# Край на if-a #}
+
+        </div>
+
+    </div>
+{% endblock %}

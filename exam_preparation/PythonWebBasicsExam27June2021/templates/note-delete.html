@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{#{% block list-right %}#}
+{#{% include 'full-list-right.html' %}#}
+{#{% endblock %}#}
+{% block content %}
+
+        <div class="body">
+            <!--headings-->
+            <h1>Delete Note</h1>
+            <!--headings-->
+
+            <!--note delete data form-->
+            <div class="form">
+                <form method="POST" action="{% url 'delete' note.id %}">
+                    {{ form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Delete" />
+                </form>
+            </div>
+            <!--end note delete data form-->
+        </div>
+{% endblock %}
