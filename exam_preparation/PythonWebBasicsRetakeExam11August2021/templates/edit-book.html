@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block navbar %}
+{% include 'navbar-buttons.html' %}
+{% endblock %}
+{% block content %}
+        <!-- Edit Book Page -->
+        <section id="edit-page" class="edit">
+            <form id="edit-form" action="{% url 'edit_book' pk=book.pk %}" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="button submit" type="submit" value="Edit">
+                </fieldset>
+            </form>
+        </section>
+{% endblock %}

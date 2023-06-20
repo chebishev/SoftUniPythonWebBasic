@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block navbar %}
+{% include 'navbar-buttons.html' %}
+{% endblock %}
+{% block content %}
+        <!-- Edit Profile Page -->
+        <section id="edit-profile-page" class="edit">
+            <form id="edit-form" action="{% url 'profile_delete' %}" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    {{ form }}
+                  <input class="button submit" type="submit" value="Delete">
+                </fieldset>
+            </form>
+        </section>
+{% endblock %}

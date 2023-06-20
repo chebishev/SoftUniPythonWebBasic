@@ -1,0 +1,25 @@
+{% extends 'base.html' %}}
+{% block add %}
+{% include 'li-add.html' %}
+{% endblock %}
+{% block profile %}
+{% include 'li-profile.html' %}
+{% endblock %}
+{% block body %}
+
+        <div class="body">
+            <!--headings-->
+            <h1>Edit Note</h1>
+            <!--headings-->
+
+            <!--note edit data form-->
+            <div class="form">
+                <form method="POST" action="{% url 'edit' pk=note.pk %}">
+                    {{ form }}
+                    <input type="submit" value="Edit" />
+                    {% csrf_token %}
+                </form>
+            </div>
+            <!--end note edit data form-->
+        </div>
+{% endblock %}
